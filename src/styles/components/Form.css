@@ -1,0 +1,15 @@
+.form-label {
+  @apply flex flex-col gap-1;
+}
+
+.form-input {
+  @apply h-[44px] rounded-lg border-gray-400;
+}
+
+.form-text {
+  @apply text-xl ml-2;
+}
+
+.form-error {
+  @apply ml-2 h-3 text-red-500 text-xs;
+}

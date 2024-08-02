@@ -1,11 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { setupListeners } from '@rtk-incubator/rtk-query';
+import { contactsApi } from './api';
 
 const store = configureStore({
   reducer: {
-
+    [contactsApi.reducerPath]: contactsApi.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(contactsApi.middleware),
 });
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+setupListeners(store.dispatch);
+
 export default store;
